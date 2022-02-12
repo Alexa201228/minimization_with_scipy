@@ -17,6 +17,7 @@ def func(sigma_coef):
 
 # Ограничения, включая ограничения равенства и ограничения неравенства
 def con(d, mr_coef):
+    e = 1e-15 # Для обозначения нуля
     cons = ({'type': 'eq', 'fun': lambda x: mr_coef[0] * x[0] +
                                             mr_coef[1] * x[1] +
                                             mr_coef[2] * x[2] +
@@ -24,7 +25,14 @@ def con(d, mr_coef):
                                             mr_coef[4] * x[4] +
                                             mr_coef[5] * x[5] +
                                             mr_coef[6] * x[6] - d},
-            {'type': 'eq', 'fun': lambda x: x[0] + x[1] + x[2] + x[3] + x[4] + x[5] + x[6] - 1})
+            {'type': 'eq', 'fun': lambda x: x[0] + x[1] + x[2] + x[3] + x[4] + x[5] + x[6] - 1},
+            {'type': 'ineq', 'fun': lambda x: x[0] - e},
+            {'type': 'ineq', 'fun': lambda x: x[1] - e},
+            {'type': 'ineq', 'fun': lambda x: x[2] - e},
+            {'type': 'ineq', 'fun': lambda x: x[3] - e},
+            {'type': 'ineq', 'fun': lambda x: x[4] - e},
+            {'type': 'ineq', 'fun': lambda x: x[5] - e},
+            {'type': 'ineq', 'fun': lambda x: x[6] - e},)
 
     return cons
 

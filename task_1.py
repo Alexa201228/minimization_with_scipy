@@ -10,9 +10,10 @@ def func(a_coef, b_coef):
 
 
 def con(d):
+    e = 1e-15  # Для обозначения нуля
     cons = ({'type': 'eq', 'fun': lambda x: x[0] + x[1] - d},
-            {'type': 'ineq', 'fun': lambda x: x[0] - 0},
-            {'type': 'ineq', 'fun': lambda x: x[1] - 0})
+            {'type': 'ineq', 'fun': lambda x: x[0] - e},
+            {'type': 'ineq', 'fun': lambda x: x[1] - e})
 
     return cons
 
