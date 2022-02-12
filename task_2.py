@@ -38,7 +38,7 @@ if __name__ == "__main__":
     m = float(input())
     cons = con(m, mr_coef)
 
-    x0 = np.array((0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0))  # Установить начальное значение
+    x0 = np.array((0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1))  # Установить начальное значение
 
     res = minimize(func(sigma_coef), x0, method='SLSQP', constraints=cons)
 
